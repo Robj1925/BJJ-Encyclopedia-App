@@ -1,26 +1,17 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
+import { listUsers }  from '../service/UserService'
 
 export const ListUserComponent = () => {
 
-    const dummyData = [
-        {
-            "id" : 1,
-            "username" : "Coolguy1923",
-            "password" : "ramesh1236969"
-        },
-        {
-            "id" : 2,
-            "username" : "brayag",
-            "password" : "helloadele177"
-        },
-        {
-            "id" : 3,
-            "username" : "sandycheeks777",
-            "password" : "camerondiazishot092"
-        },
+    const [users, setUsers] = useState([])
 
-
-    ]
+    useEffect(() => {
+        listUsers().then((response) => {
+            setUsers(response.data);
+        }).catch(error => {
+            console.error(error);
+        })
+    }, [])
   return (
     <div className='container'>
         <h2 className='text-center'>List of Users</h2>
@@ -34,7 +25,7 @@ export const ListUserComponent = () => {
             </thead>
             <tbody>
                 {
-                    dummyData.map(user => 
+                    users.map(user => 
                         <tr key={user.id}>
                             <td>{user.id}</td>
                             <td>{user.username}</td>
