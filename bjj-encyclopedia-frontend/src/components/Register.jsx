@@ -14,7 +14,7 @@ export function Register() {
     async function save(event) {
         event.preventDefault();
         try {
-          await axios.post("http://localhost:8081/addUser", {
+          await axios.post("http://localhost:8081/register", {
      //     employeename: employeename,
           username: username,
           password: password,
@@ -23,6 +23,9 @@ export function Register() {
           {
            console.log(res.data);
            alert(res.data.message);
+           if (res.data.message === "Succesfully Registered!") {
+            navigate("/")
+           }
           //  if (res.data.message == "Email not exits") 
           //  {
           //    alert("Email not exits");
