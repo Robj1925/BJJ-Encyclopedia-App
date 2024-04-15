@@ -14,14 +14,14 @@ export function Login() {
   async function login(event) {
     event.preventDefault();
     try {
-      await axios.post("http://localhost:8081/login", {
+      await axios.post(" https://90d9-2601-84-8900-fb0-6c93-1b20-edfa-504b.ngrok-free.app/login", {
         username: username,
         password: password,
       }).then((res) => {
         console.log(res.data);
         alert(res.data.message);
         if (res.data.message === "Login Successful!") {
-          navigate('/home');
+          navigate('/todo');
         } else {
           // Handle other cases if needed
         }
@@ -54,7 +54,7 @@ export function Login() {
     <div>
       <div class="container">
         <div class="row">
-          <h2>Login</h2>
+          <h2>Login- exclusive for Rob J</h2>
           <hr />
         </div>
 
