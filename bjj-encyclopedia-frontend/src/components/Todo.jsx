@@ -1,4 +1,5 @@
 import React, { Fragment, useEffect, useState } from "react";
+import TodoItem from "./todoItem";
 
 export function Todo() {
   const [todoItems, setTodoItems] = useState(null);
@@ -27,10 +28,7 @@ export function Todo() {
       {todoItems
         ? todoItems.map((todoItem) => {
             return (
-              <Fragment key={todoItem.id}>
-                <input type="checkbox" checked={todoItem.status} />
-                <span>{todoItem.title}</span>
-              </Fragment>
+              <TodoItem key={todoItem.id} data={todoItem} />
             );
           })
         : "loading data..."}

@@ -14,7 +14,7 @@ export function Login() {
   async function login(event) {
     event.preventDefault();
     try {
-      await axios.post(" https://90d9-2601-84-8900-fb0-6c93-1b20-edfa-504b.ngrok-free.app/login", {
+      await axios.post("http://localhost:8081/login", {
         username: username,
         password: password,
       }).then((res) => {
